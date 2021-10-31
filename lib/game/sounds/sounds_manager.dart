@@ -43,6 +43,11 @@ class SoundsManager {
     fadeInBgm();
   }
 
+  static void playSchumann() async {
+    FlameAudio.bgm.play('bgm/schumann.mp3');
+    fadeInBgm();
+  }
+
   // static void playIntroBgm() async {
   //   await stopBgm();
   //   FlameAudio.bgm.play('music/intro.mp3');

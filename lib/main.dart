@@ -57,8 +57,8 @@ class MyApp extends StatelessWidget {
         builder: (context, constraints) {
           tileSize = (max(constraints.maxHeight, constraints.maxWidth) / 30)
               .ceilToDouble();
+          // return const LunaKitchen();
           return const SplashScreen();
-          // return const SplashScreen();
         },
       ),
     );

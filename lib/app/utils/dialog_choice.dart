@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:happy_luna/app/utils/fancy_button.dart';
 import 'package:happy_luna/game/utils/dialogue.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 
@@ -34,22 +35,15 @@ class DialogChoice {
         )).show();
   }
 
-  ElevatedButton option(Color color, String text, VoidCallback function) {
-    return ElevatedButton(
-      style: ElevatedButton.styleFrom(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(90.0),
-        ),
-        elevation: 6.0,
-        primary: color,
-      ),
-      child: Center(
-        child: Text(
-          text,
-          style: Dialogue.choiceTextStyle,
-        ),
-      ),
+  FancyButton option(Color color, String text, VoidCallback function) {
+    return FancyButton(
+      color: color,
       onPressed: function,
+      size: 32.0,
+      child: Text(
+        text,
+        style: Dialogue.choiceTextStyle,
+      ),
     );
   }
 }

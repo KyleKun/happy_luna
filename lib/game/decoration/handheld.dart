@@ -9,8 +9,8 @@ class Handheld extends GameDecoration with TapGesture {
       : super.withSprite(
           Sprite.load('decoration/game.png'),
           position: position,
-          width: tileSize,
-          height: tileSize,
+          width: componentsBaseSize,
+          height: componentsBaseSize,
         );
 
   @override

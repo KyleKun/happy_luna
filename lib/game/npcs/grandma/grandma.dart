@@ -8,7 +8,7 @@ class Grandma extends GameDecoration {
       : super.withSprite(
           Sprite.load('npc/grandma.png'),
           position: position,
-          width: componentsBaseSize,
-          height: componentsBaseSize * 1.2,
+          width: componentsBaseSize * 1.3,
+          height: componentsBaseSize * 2.4,
         );
 }

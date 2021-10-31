@@ -110,9 +110,10 @@ class _LunaRoomState extends State<LunaRoom> {
       await Future.delayed(const Duration(milliseconds: 300));
       DialogChoice().show(
           context,
-          Colors.green,
+          Colors.orange,
           Cubes.getString('room_choice_1'),
           () async {
+            await Future.delayed(const Duration(milliseconds: 200));
             context.pop();
             await Future.delayed(const Duration(milliseconds: 200));
             afterChoice(1);
@@ -120,6 +121,7 @@ class _LunaRoomState extends State<LunaRoom> {
           Colors.purple,
           Cubes.getString('room_choice_2'),
           () async {
+            await Future.delayed(const Duration(milliseconds: 200));
             context.pop();
             await Future.delayed(const Duration(milliseconds: 200));
             afterChoice(2);
@@ -134,7 +136,7 @@ class _LunaRoomState extends State<LunaRoom> {
         return BonfireTiledWidget(
           progress: const SizedBox(),
           interface: GameInterface(),
-          showCollisionArea: true,
+          // showCollisionArea: true,
           // constructionMode: true,
           joystick: Joystick(
             directional: JoystickDirectional(
