@@ -4,10 +4,6 @@ import 'package:bonfire/bonfire.dart';
 import 'package:cubes/cubes.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:happy_luna/app/screens/credits/credits.dart';
-import 'package:happy_luna/app/screens/intro/intro.dart';
-import 'package:happy_luna/game/maps/luna_kitchen.dart';
-import 'package:happy_luna/game/maps/luna_room.dart';
 
 import 'app/screens/splash/splash_screen.dart';
 import 'app/utils/fade_in_transition_builder.dart';
@@ -57,7 +53,6 @@ class MyApp extends StatelessWidget {
         builder: (context, constraints) {
           tileSize = (max(constraints.maxHeight, constraints.maxWidth) / 30)
               .ceilToDouble();
-          // return const LunaKitchen();
           return const SplashScreen();
         },
       ),

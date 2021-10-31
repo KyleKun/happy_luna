@@ -4,7 +4,6 @@ import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:cubes/cubes.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:happy_luna/game/maps/luna_room.dart';
 import 'package:happy_luna/game/sounds/sounds_manager.dart';
 
 class CreditsScreen extends StatefulWidget {
@@ -50,7 +49,7 @@ class _CreditsScreenState extends State<CreditsScreen> {
             },
             animatedTexts: [
               FadeAnimatedText(
-                '',
+                Cubes.getString('credits'),
                 duration: const Duration(seconds: 3),
               ),
               FadeAnimatedText(

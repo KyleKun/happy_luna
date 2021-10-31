@@ -6,6 +6,7 @@ import 'package:happy_luna/game/maps/luna_kitchen.dart';
 import 'package:happy_luna/game/minigames/maze_minigame.dart';
 import 'package:happy_luna/game/player/luna.dart';
 import 'package:happy_luna/game/sounds/sounds_manager.dart';
+import 'package:happy_luna/game/utils/dialogue.dart';
 import 'package:happy_luna/game/utils/text_paints.dart';
 
 class Handheld extends GameDecoration with ObjectCollision, TapGesture {
@@ -61,28 +62,63 @@ class Handheld extends GameDecoration with ObjectCollision, TapGesture {
   void onTap() async {
     if (_textPaint.config.color != Colors.transparent) {
       SoundsManager.playBach();
-      showGeneralDialog(
-          barrierDismissible: false,
-          barrierColor: Colors.transparent,
-          context: context,
-          transitionDuration: const Duration(milliseconds: 500),
-          transitionBuilder: (context, anim1, anim2, child) {
-            return SlideTransition(
-              position:
-                  Tween(begin: const Offset(0, 1), end: const Offset(0, 0))
-                      .animate(anim1),
-              child: child,
-            );
-          },
-          pageBuilder: (context, anim1, anim2) {
-            return const Align(
-              alignment: Alignment.center,
-              child: Dialog(
-                backgroundColor: Colors.transparent,
-                child: MazeMinigame(),
-              ),
-            );
-          });
+
+      TalkDialog.show(context, [
+        Dialogue.say('Luna', [
+          TextSpan(
+            text: Cubes.getString('game_1'),
+          ),
+        ]),
+        Dialogue.say('Luna', [
+          TextSpan(
+            text: Cubes.getString('game_2'),
+          ),
+        ]),
+        Dialogue.say('Luna', [
+          TextSpan(
+            text: Cubes.getString('game_3'),
+          ),
+        ]),
+        Dialogue.say('Luna', [
+          TextSpan(
+            text: Cubes.getString('game_4'),
+          ),
+        ]),
+        Dialogue.say('Luna', [
+          TextSpan(
+            text: Cubes.getString('game_5'),
+          ),
+        ]),
+        Dialogue.say('Luna', [
+          TextSpan(
+            text: Cubes.getString('game_6'),
+          ),
+        ]),
+      ], finish: () async {
+        await Future.delayed(const Duration(milliseconds: 300));
+        showGeneralDialog(
+            barrierDismissible: false,
+            barrierColor: Colors.transparent,
+            context: context,
+            transitionDuration: const Duration(milliseconds: 500),
+            transitionBuilder: (context, anim1, anim2, child) {
+              return SlideTransition(
+                position:
+                    Tween(begin: const Offset(0, 1), end: const Offset(0, 0))
+                        .animate(anim1),
+                child: child,
+              );
+            },
+            pageBuilder: (context, anim1, anim2) {
+              return Align(
+                alignment: Alignment.center,
+                child: Dialog(
+                  backgroundColor: Colors.transparent,
+                  child: MazeMinigame(gameRef: gameRef),
+                ),
+              );
+            });
+      });
     }
   }
 

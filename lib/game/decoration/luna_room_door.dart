@@ -7,8 +7,6 @@ import 'package:happy_luna/game/player/luna.dart';
 import 'package:happy_luna/game/sounds/sounds_manager.dart';
 import 'package:happy_luna/game/utils/text_paints.dart';
 
-import '../../main.dart';
-
 class LunaRoomDoor extends GameDecoration with ObjectCollision, TapGesture {
   late TextPaint _textPaint;
   LunaRoomDoor(Vector2 position)
@@ -40,8 +38,8 @@ class LunaRoomDoor extends GameDecoration with ObjectCollision, TapGesture {
       canvas,
       Cubes.getString('open'),
       Vector2(
-        position.left + width / 4,
-        position.top - width / 5.5,
+        position.left + width / 6,
+        position.top - width / 7,
       ),
     );
   }

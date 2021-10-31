@@ -1,10 +1,13 @@
+import 'package:bonfire/bonfire.dart';
 import 'package:flutter/material.dart';
 import 'package:cubes/cubes.dart';
+import 'package:happy_luna/game/player/luna.dart';
 import 'package:happy_luna/game/sounds/sounds_manager.dart';
 import 'package:maze/maze.dart';
 
 class MazeMinigame extends StatefulWidget {
-  const MazeMinigame({Key? key}) : super(key: key);
+  const MazeMinigame({Key? key, required this.gameRef}) : super(key: key);
+  final BonfireGame gameRef;
 
   @override
   _MazeMinigameState createState() => _MazeMinigameState();
@@ -16,7 +19,7 @@ class _MazeMinigameState extends State<MazeMinigame> {
   @override
   void dispose() {
     SoundsManager.stopBgm();
-    SoundsManager.playSchumann();
+    (widget.gameRef.player as Luna).doneGame = true;
     super.dispose();
   }
 
@@ -45,7 +48,6 @@ class _MazeMinigameState extends State<MazeMinigame> {
                 });
                 await Future.delayed(const Duration(milliseconds: 300));
                 context.pop();
-                // TODO: continue
               }
             }),
       ),

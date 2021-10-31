@@ -54,6 +54,11 @@ class SoundsManager {
     fadeInBgm();
   }
 
+  static void playChopinRevelation() async {
+    FlameAudio.bgm.play('bgm/chopin_revelation.mp3');
+    fadeInBgm();
+  }
+
   // static void playIntroBgm() async {
   //   await stopBgm();
   //   FlameAudio.bgm.play('music/intro.mp3');

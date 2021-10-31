@@ -1,11 +1,12 @@
 import 'package:bonfire/bonfire.dart';
+import 'package:cubes/cubes.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:happy_luna/game/decoration/handheld.dart';
-import 'package:happy_luna/game/decoration/wash.dart';
 import 'package:happy_luna/game/npcs/grandma/grandma.dart';
 import 'package:happy_luna/game/player/luna.dart';
 import 'package:happy_luna/game/sounds/sounds_manager.dart';
+import 'package:happy_luna/game/utils/dialogue.dart';
 import 'package:happy_luna/main.dart';
 
 class LunaKitchen extends StatefulWidget {
@@ -19,7 +20,7 @@ class _LunaKitchenState extends State<LunaKitchen> {
   @override
   void initState() {
     SoundsManager.playSchumann();
-    Future.delayed(const Duration(seconds: 3), () {
+    Future.delayed(const Duration(seconds: 1), () {
       grandmaDialogue();
     });
     super.initState();
@@ -63,7 +64,6 @@ class _LunaKitchenState extends State<LunaKitchen> {
             forceTileSize: Size(tileSize, tileSize),
             objectsBuilder: {
               'grandma': (properties) => Grandma(properties.position),
-              'wash': (properties) => Wash(properties.position),
               'game': (properties) => Handheld(properties.position),
             },
           ),
@@ -72,5 +72,71 @@ class _LunaKitchenState extends State<LunaKitchen> {
     );
   }
 
-  void grandmaDialogue() {}
+  void grandmaDialogue() {
+    TalkDialog.show(
+      context,
+      [
+        Dialogue.say('Grandma', [
+          TextSpan(
+            text: Cubes.getString('kitchen_1'),
+          ),
+        ]),
+        Dialogue.say('Luna', [
+          TextSpan(
+            text: Cubes.getString('kitchen_2'),
+          ),
+        ]),
+        Dialogue.say('Grandma', [
+          TextSpan(
+            text: Cubes.getString('kitchen_3'),
+          ),
+        ]),
+        Dialogue.say('Grandma', [
+          TextSpan(
+            text: Cubes.getString('kitchen_4'),
+          ),
+        ]),
+        Dialogue.say('Luna', [
+          TextSpan(
+            text: Cubes.getString('kitchen_5'),
+          ),
+        ]),
+        Dialogue.say('Grandma', [
+          TextSpan(
+            text: Cubes.getString('kitchen_6'),
+          ),
+        ]),
+        Dialogue.say('Luna', [
+          TextSpan(
+            text: Cubes.getString('kitchen_7'),
+          ),
+        ]),
+        Dialogue.say('Grandma', [
+          TextSpan(
+            text: Cubes.getString('kitchen_8'),
+          ),
+        ]),
+        Dialogue.say('Luna', [
+          TextSpan(
+            text: Cubes.getString('kitchen_9'),
+          ),
+        ]),
+        Dialogue.say('Grandma', [
+          TextSpan(
+            text: Cubes.getString('kitchen_10'),
+          ),
+        ]),
+        Dialogue.say('Grandma', [
+          TextSpan(
+            text: Cubes.getString('kitchen_11'),
+          ),
+        ]),
+        Dialogue.say('Luna', [
+          TextSpan(
+            text: Cubes.getString('kitchen_12'),
+          ),
+        ]),
+      ],
+    );
+  }
 }

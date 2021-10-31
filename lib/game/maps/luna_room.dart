@@ -24,7 +24,7 @@ class _LunaRoomState extends State<LunaRoom> {
   void initState() {
     super.initState();
     SoundsManager.playMozart();
-    Future.delayed(const Duration(seconds: 3), () {
+    Future.delayed(const Duration(seconds: 1), () {
       initialDialogue();
     });
   }

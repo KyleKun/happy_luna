@@ -1,6 +1,10 @@
 import 'package:bonfire/bonfire.dart';
 import 'package:cubes/cubes.dart';
 import 'package:flutter/material.dart';
+import 'package:happy_luna/app/screens/credits/credits.dart';
+import 'package:happy_luna/game/decoration/hat.dart';
+import 'package:happy_luna/game/npcs/grandma/grandma.dart';
+import 'package:happy_luna/game/sounds/sounds_manager.dart';
 import 'package:happy_luna/game/utils/dialogue.dart';
 
 import '../../main.dart';
@@ -15,6 +19,8 @@ class Luna extends SimplePlayer with ObjectCollision {
   bool doneToy = false;
   bool roomClear = false;
   bool unlockDoor = false;
+  bool doneGame = false;
+  bool finishedAll = false;
 
   Luna(Vector2 position)
       : super(
@@ -42,6 +48,81 @@ class Luna extends SimplePlayer with ObjectCollision {
 
   @override
   void update(double dt) {
+    if (!finishedAll) {
+      if (doneGame) {
+        finishedAll = true;
+        final grandma = gameRef
+            .visibleComponents()
+            .where((element) => element is Grandma)
+            .cast<Grandma>()
+            .first;
+
+        gameRef.camera.moveToTargetAnimated(grandma, zoom: 3);
+        SoundsManager.playChopinRevelation();
+        Future.delayed(
+            const Duration(milliseconds: 2000),
+            () => TalkDialog.show(gameRef.context, [
+                  Dialogue.say('Grandma', [
+                    TextSpan(
+                      text: Cubes.getString('phone_1'),
+                    ),
+                  ]),
+                  Dialogue.say('Grandma', [
+                    TextSpan(
+                      text: Cubes.getString('phone_2'),
+                    ),
+                  ]),
+                  Dialogue.say('Grandma', [
+                    TextSpan(
+                      text: Cubes.getString('phone_3'),
+                    ),
+                  ]),
+                ], finish: () async {
+                  await Future.delayed(const Duration(milliseconds: 200));
+                  final positionX = grandma.position.position.x;
+                  final positionY = grandma.position.position.y;
+                  final positionHat = Vector2(positionX / 1.2, positionY * 1.4);
+
+                  gameRef.addGameComponent(Hat(positionHat));
+                  TalkDialog.show(gameRef.context, [
+                    Dialogue.say('Grandma', [
+                      TextSpan(
+                        text: Cubes.getString('phone_4'),
+                      ),
+                    ]),
+                    Dialogue.say('Grandma', [
+                      TextSpan(
+                        text: Cubes.getString('phone_5'),
+                      ),
+                    ]),
+                    Dialogue.say('Grandma', [
+                      TextSpan(
+                        text: Cubes.getString('phone_6'),
+                      ),
+                    ]),
+                    Dialogue.say('Grandma', [
+                      TextSpan(
+                        text: Cubes.getString('phone_7'),
+                      ),
+                    ]),
+                    Dialogue.say('Grandma', [
+                      TextSpan(
+                        text: Cubes.getString('phone_8'),
+                      ),
+                    ]),
+                    Dialogue.say('Grandma', [
+                      TextSpan(
+                        text: Cubes.getString('phone_9'),
+                      ),
+                    ]),
+                  ], finish: () async {
+                    await Future.delayed(const Duration(milliseconds: 300));
+                    context.goToReplacement(const CreditsScreen());
+                  });
+                }));
+      }
+    }
+
     if (!roomClear) {
       if (doneBall && doneToy) {
         roomClear = true;

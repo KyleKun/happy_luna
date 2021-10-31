@@ -2,7 +2,6 @@ import 'package:flame_splash_screen/flame_splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:cubes/cubes.dart';
 import 'package:happy_luna/app/screens/intro/intro.dart';
-import 'package:happy_luna/game/maps/luna_room.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({Key? key}) : super(key: key);
