@@ -2,6 +2,7 @@ import 'package:bonfire/bonfire.dart';
 import 'package:bonfire/decoration/decoration.dart';
 import 'package:happy_luna/game/decoration/luna_ball.dart';
 import 'package:happy_luna/game/decoration/luna_toy.dart';
+import 'package:happy_luna/game/player/luna.dart';
 
 import '../../main.dart';
 
@@ -16,10 +17,10 @@ class RoomPlacePosition extends GameDecoration with Sensor {
 
   @override
   void onContact(GameComponent component) {
-    if (component is LunaBall) {
-      print('Ball done');
-    } else if (component is LunaToy) {
-      print('Toy done');
+    if (component is LunaBall && !(gameRef.player as Luna).doneBall) {
+      (gameRef.player as Luna).doneBall = true;
+    } else if (component is LunaToy && !(gameRef.player as Luna).doneToy) {
+      (gameRef.player as Luna).doneToy = true;
     }
   }
 }

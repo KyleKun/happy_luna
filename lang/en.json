@@ -9,9 +9,18 @@
   "room_choice_2": "sleep more", 
   "room_luna_nope": "Sleep a little more? Noooo, I've got enough sleep! Let's check my phone notifications.",
   "room_luna_4": "...checking my phone, obviously.",
+  "room_luna_5": "Let's see... new Halloween special videos on MeTube, messages from my friends inviting me for a halloween party...",
+  "room_luna_6": "Well, I won't go anyways.",
+  "room_luna_7": "My grandma doesn't like halloween. She says spooky stuff like that is not cute.",
+  "room_luna_8": "I pretty much agree with her, I don't like getting scared! You can't truly experience happiness if there is fear.",
+  "room_luna_9": "And since I am Happy Luna, I am alwaysss happy!!! My grandma has always said that to me :)",
+  "room_luna_10": "Oh, speaking about her, I should help her with the dishes from yesterday!",
+  "room_luna_11": "But before that, let's put the bear and the ball in the shelf. Gotta have my room tidy and cozy, no toys on the floor!",
+  "room_luna_done": "All done! Let's go see grandma.",
   "credits_1": "Programming: {name}",
   "credits_2": "Story: {name}",
   "credits_3": "Art (elite level artist): {name}",
   "credits_4": "Music (poor piano recordings): {name}",
-  "thanks_for_playing": "Thanks for playing!"
+  "thanks_for_playing": "Thanks for playing!",
+  "open": "open"
 }

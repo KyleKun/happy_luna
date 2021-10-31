@@ -34,6 +34,61 @@ class _LunaRoomState extends State<LunaRoom> {
     super.dispose();
   }
 
+  void afterChoice(int choice) {
+    String reply = '';
+    if (choice == 1) {
+      reply = Cubes.getString('room_luna_4');
+    } else if (choice == 2) {
+      reply = Cubes.getString('room_luna_nope');
+    }
+
+    TalkDialog.show(
+      context,
+      [
+        Dialogue.say('Luna', [
+          TextSpan(
+            text: reply,
+          ),
+        ]),
+        Dialogue.say('Luna', [
+          TextSpan(
+            text: Cubes.getString('room_luna_5'),
+          ),
+        ]),
+        Dialogue.say('Luna', [
+          TextSpan(
+            text: Cubes.getString('room_luna_6'),
+          ),
+        ]),
+        Dialogue.say('Luna', [
+          TextSpan(
+            text: Cubes.getString('room_luna_7'),
+          ),
+        ]),
+        Dialogue.say('Luna', [
+          TextSpan(
+            text: Cubes.getString('room_luna_8'),
+          ),
+        ]),
+        Dialogue.say('Luna', [
+          TextSpan(
+            text: Cubes.getString('room_luna_9'),
+          ),
+        ]),
+        Dialogue.say('Luna', [
+          TextSpan(
+            text: Cubes.getString('room_luna_10'),
+          ),
+        ]),
+        Dialogue.say('Luna', [
+          TextSpan(
+            text: Cubes.getString('room_luna_11'),
+          ),
+        ]),
+      ],
+    );
+  }
+
   void initialDialogue() {
     TalkDialog.show(context, [
       Dialogue.say('Luna', [
@@ -53,20 +108,21 @@ class _LunaRoomState extends State<LunaRoom> {
       ]),
     ], finish: () async {
       await Future.delayed(const Duration(milliseconds: 300));
-      print('finish talk');
       DialogChoice().show(
           context,
           Colors.green,
           Cubes.getString('room_choice_1'),
-          () {
-            print('Check your phone');
+          () async {
             context.pop();
+            await Future.delayed(const Duration(milliseconds: 200));
+            afterChoice(1);
           },
-          Colors.red,
+          Colors.purple,
           Cubes.getString('room_choice_2'),
-          () {
-            print('Sleep more');
+          () async {
             context.pop();
+            await Future.delayed(const Duration(milliseconds: 200));
+            afterChoice(2);
           });
     });
   }
@@ -78,7 +134,7 @@ class _LunaRoomState extends State<LunaRoom> {
         return BonfireTiledWidget(
           progress: const SizedBox(),
           interface: GameInterface(),
-          // showCollisionArea: true,
+          showCollisionArea: true,
           // constructionMode: true,
           joystick: Joystick(
             directional: JoystickDirectional(
