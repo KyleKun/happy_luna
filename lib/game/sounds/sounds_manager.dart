@@ -48,6 +48,12 @@ class SoundsManager {
     fadeInBgm();
   }
 
+  static void playBach() async {
+    stopBgm();
+    FlameAudio.bgm.play('bgm/bach.mp3');
+    fadeInBgm();
+  }
+
   // static void playIntroBgm() async {
   //   await stopBgm();
   //   FlameAudio.bgm.play('music/intro.mp3');

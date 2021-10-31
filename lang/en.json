@@ -22,5 +22,6 @@
   "credits_3": "Art (elite level artist): {name}",
   "credits_4": "Music (poor piano recordings): {name}",
   "thanks_for_playing": "Thanks for playing!",
-  "open": "open"
+  "open": "open",
+  "play": "play"
 }

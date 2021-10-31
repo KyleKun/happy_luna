@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:cubes/cubes.dart';
+import 'package:happy_luna/game/sounds/sounds_manager.dart';
 import 'package:maze/maze.dart';
 
 class MazeMinigame extends StatefulWidget {
@@ -11,6 +12,13 @@ class MazeMinigame extends StatefulWidget {
 
 class _MazeMinigameState extends State<MazeMinigame> {
   bool completed = false;
+
+  @override
+  void dispose() {
+    SoundsManager.stopBgm();
+    SoundsManager.playSchumann();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -27,19 +35,18 @@ class _MazeMinigameState extends State<MazeMinigame> {
             wallThickness: 4.0,
             wallColor: Colors.white,
             finish: MazeItem(
-              'assets/images/vitas.png',
+              'assets/images/decoration/luna_toy.png',
               ImageType.asset,
             ),
             onFinish: () async {
               if (!completed) {
-                await Future.delayed(const Duration(milliseconds: 800));
+                setState(() {
+                  completed = true;
+                });
+                await Future.delayed(const Duration(milliseconds: 300));
                 context.pop();
                 // TODO: continue
               }
-
-              setState(() {
-                completed = true;
-              });
             }),
       ),
     );
