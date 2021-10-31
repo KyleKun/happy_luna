@@ -5,7 +5,7 @@ import '../../main.dart';
 import 'luna_spritesheet.dart';
 
 class Luna extends SimplePlayer with ObjectCollision {
-  static double maxSpeed = 400;
+  static double maxSpeed = 90;
 
   bool lockMove = false;
 
@@ -14,15 +14,19 @@ class Luna extends SimplePlayer with ObjectCollision {
           position: position,
           animation: LunaSpriteSheet.simpleDirectionAnimation,
           speed: maxSpeed,
-          width: componentsBaseSize * 1.3,
+          // width: componentsBaseSize * 1.3,
+          // height: componentsBaseSize * 2,
+          width: componentsBaseSize,
           height: componentsBaseSize * 2,
         ) {
     setupCollision(
       CollisionConfig(
         collisions: [
           CollisionArea.rectangle(
-            size: Size(componentsBaseSize / 2, componentsBaseSize * 0.6),
-            align: Vector2(componentsBaseSize / 2.2, componentsBaseSize * 1.1),
+            size: Size(componentsBaseSize / 2, componentsBaseSize / 1.2),
+            align: Vector2(componentsBaseSize / 3, componentsBaseSize),
+            // size: Size(componentsBaseSize / 2, componentsBaseSize * 0.6),
+            // align: Vector2(componentsBaseSize / 2.2, componentsBaseSize * 1.1),
           ),
         ],
       ),

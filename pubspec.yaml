@@ -21,6 +21,7 @@ dependencies:
   maze: ^3.0.0
   scratcher: ^2.1.0
   flutter_animator: ^3.2.0
+  rflutter_alert: ^2.0.4
 
 dev_dependencies:
   flutter_test:

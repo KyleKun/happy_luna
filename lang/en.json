@@ -1,7 +1,17 @@
 {
+  "intro_1": "Hi!\nThis is a short tale about\na little girl called Happy Luna.",
+  "intro_2": "Alright, that's not her name.\nThe case is, she is so happy that everyone calls her that way.",
+  "intro_3": "I mean, she is extremely happy!! SO VERY MUCH HAPPY!!!!!",
   "room_luna_1": "Yawnnn",
-  "room_luna_2": "The sun has got his hat on... Hey hey hey hey heyyy... The sun has got his hat on and he's coming out today",
+  "room_luna_2": "The sun has got his hat on... Hey hey hey hey heyyy... The sun has got his hat on and he's coming out today.",
   "room_luna_3": "And now that I've started the day singing my favorite song, let's do the most important thing after getting out of the bed. And that is... ", 
-  "room_choice_1": "Check your phone", 
-  "room_luna_4": "...checking my phone, obviously."
+  "room_choice_1": "check your phone", 
+  "room_choice_2": "sleep more", 
+  "room_luna_nope": "Sleep a little more? Noooo, I've got enough sleep! Let's check my phone notifications.",
+  "room_luna_4": "...checking my phone, obviously.",
+  "credits_1": "Programming: {name}",
+  "credits_2": "Story: {name}",
+  "credits_3": "Art (elite level artist): {name}",
+  "credits_4": "Music (poor piano recordings): {name}",
+  "thanks_for_playing": "Thanks for playing!"
 }

@@ -5,22 +5,43 @@ class SoundsManager {
   static Future initialize() async {
     FlameAudio.bgm.initialize();
 
-    await FlameAudio.audioCache.loadAll(['']);
+    await FlameAudio.audioCache.loadAll([
+      'sfx/button_click.ogg',
+      'sfx/door_knock.ogg',
+      'sfx/door_open.ogg',
+    ]);
   }
 
   static void buttonClick() {
     FlameAudio.audioCache.play('sfx/button_click.ogg', volume: 0.6);
   }
 
-  static void stopBgm() {
-    FlameAudio.bgm.stop();
+  static void doorKnock() {
+    FlameAudio.audioCache.play('sfx/door_knock.ogg', volume: 0.6);
   }
 
-  // static void playMenuBgm() async {
-  //   await stopBgm();
-  //   FlameAudio.bgm.play('music/menu.mp3');
-  //   fadeInBgm();
-  // }
+  static void doorOpen() {
+    FlameAudio.audioCache.play('sfx/door_open.ogg', volume: 0.6);
+  }
+
+  static void stopBgm() async {
+    await FlameAudio.bgm.stop();
+  }
+
+  static void playMozart() async {
+    FlameAudio.bgm.play('bgm/mozart.mp3');
+    fadeInBgm();
+  }
+
+  static void playBeethoven() async {
+    FlameAudio.bgm.play('bgm/beethoven.mp3');
+    fadeInBgm();
+  }
+
+  static void playChopinEnd() async {
+    FlameAudio.bgm.play('bgm/chopin_end.mp3');
+    fadeInBgm();
+  }
 
   // static void playIntroBgm() async {
   //   await stopBgm();
@@ -45,7 +66,7 @@ class SoundsManager {
         stopwatch.stop();
       }
       volume += 0.05;
-      FlameAudio.bgm.audioPlayer!.setVolume(volume);
+      FlameAudio.bgm.audioPlayer?.setVolume(volume);
     });
   }
 
@@ -62,7 +83,7 @@ class SoundsManager {
         stopwatch.stop();
       }
       volume -= 0.06;
-      FlameAudio.bgm.audioPlayer!.setVolume(volume);
+      FlameAudio.bgm.audioPlayer?.setVolume(volume);
     });
   }
 }
