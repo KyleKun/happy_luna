@@ -1,0 +1,14 @@
+{ "columns":1,
+ "image":"luna_room.png",
+ "imageheight":720,
+ "imagewidth":1280,
+ "margin":0,
+ "name":"luna_room_ts",
+ "spacing":0,
+ "tilecount":1,
+ "tiledversion":"1.3.5",
+ "tileheight":720,
+ "tilewidth":1280,
+ "type":"tileset",
+ "version":1.2
+}
